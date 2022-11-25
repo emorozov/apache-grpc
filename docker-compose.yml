@@ -1,0 +1,15 @@
+services:
+    apache:
+        image: apache
+        container_name: apache
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        command: ["/usr/sbin/apachectl", "-DFOREGROUND"]
+        ports:
+          - 80:80
+
+    grpc:
+      image: apache
+      container_name: grpc
+      command: ["python", "grpc_server.py"]
